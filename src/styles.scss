@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+@include mat-core();
+@import 'theme.scss';
+
+body {
+    width:100%;
+    height:100%;
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    font-family: Roboto, Arial, sans-serif;
+}
