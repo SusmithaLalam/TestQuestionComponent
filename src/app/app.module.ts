@@ -5,8 +5,12 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
-import { QuestionComponent } from './components/question/question.component';
-import { SpeechService } from './services/speech.service';
+import { QuestionComponent } from './question/question.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SpeechModule } from 'ngx-speech';
+// import { SpeechService } from 'ngx-speech';
+import Speech from 'speak-tts';
+
 
 @NgModule({
   declarations: [
@@ -17,9 +21,15 @@ import { SpeechService } from './services/speech.service';
     BrowserModule,
     // BrowserAnimationsModule,
     AppRoutingModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule,
+    SpeechModule,
+    // SpeechService
   ],
-  providers: [SpeechService],
+  providers: [
+    Speech,
+    { provide: 'SPEECH_LANG', useValue: 'en-US' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

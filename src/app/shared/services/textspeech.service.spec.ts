@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SpeechService } from './speech.service';
+import { TextspeechService } from './textspeech.service';
 
-describe('SpeechService', () => {
+describe('TextspeechService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: SpeechService = TestBed.get(SpeechService);
+    const service: TextspeechService = TestBed.get(TextspeechService);
     expect(service).toBeTruthy();
   });
 });

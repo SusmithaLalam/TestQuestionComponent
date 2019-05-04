@@ -1,0 +1,16 @@
+<div>
+  <img src="../../../assets/images/jobs/0_Welcome.png" class="center"><br><br>
+  <h1>{{ question_label }}</h1>
+  <button mat-raised-button (click)="askQuestion()">Ask Question</button>
+  <p>
+</div>
+<br><br>
+<div>
+  <form>
+    <button mat-raised-button (click)="startButton($event)">Start</button><p>
+    <button mat-raised-button (click)="stop()">Stop</button><p>
+    <textarea [value]="finalTranscript" placeholder="Speech Input Result" rows="15" disabled="true"></textarea>
+  </form>
+  <p *ngIf="notification" class="notification">{{notification}}</p>
+</div>
+ 

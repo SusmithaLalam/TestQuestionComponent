@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
 import Speech from 'speak-tts';
+import { SpeechService } from 'ngx-speech';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SpeechService {
+export class TextspeechService {
 
-  constructor(private speech: Speech) { 
-    this.speech
+  constructor(private tts: Speech, private stt: SpeechService) { 
+    console.log("speech service consructor");
+    this.tts
       .init({
         volume: 0.5,
-        lang: "en-GB",
+        lang: "en-US",
         rate: 0.9,
         pitch: 1,
         voice: 'Google US English Male',
@@ -24,7 +26,8 @@ export class SpeechService {
   }
 
   textToSpeech(data) {
-    this.speech
+    console.log(data);
+    this.tts
       .speak({
         text: data,
       })
@@ -36,3 +39,4 @@ export class SpeechService {
       });
   }
 }
+ 
