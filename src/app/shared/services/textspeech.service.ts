@@ -1,14 +1,17 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import Speech from 'speak-tts';
-import { SpeechService } from 'ngx-speech';
+// import { SpeechService } from 'ngx-speech';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TextspeechService {
+export class TextspeechService implements OnInit {
 
-  constructor(private tts: Speech, private stt: SpeechService) { 
+  constructor(private tts: Speech) { 
     console.log("speech service consructor");
+  }
+
+  ngOnInit(){
     this.tts
       .init({
         volume: 0.5,
