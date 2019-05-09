@@ -9,16 +9,13 @@ export class TextspeechService implements OnInit {
 
   constructor(private tts: Speech) { 
     console.log("speech service consructor");
-  }
-
-  ngOnInit(){
     this.tts
       .init({
         volume: 0.5,
         lang: "en-US",
         rate: 0.9,
         pitch: 1,
-        voice: 'Google US English Male',
+        // voice: 'Google US English Male',
       })
       .then(data => {
         console.log("Speech is ready", data);
@@ -26,7 +23,10 @@ export class TextspeechService implements OnInit {
       .catch(e => {
         console.error("An error occured while initializing : ", e);
       });
+    this.tts.voice = 'Google US English Female';
   }
+
+  ngOnInit(){}
 
   textToSpeech(data) {
     console.log(data);
