@@ -4,12 +4,13 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { QuestionComponent } from './question/question.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SpeechModule } from 'ngx-speech';
 // import { SpeechService } from 'ngx-speech';
 import Speech from 'speak-tts';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatIconModule, MatCardModule, MatFormFieldModule, MatSelectModule} from '@angular/material';
 
 
 @NgModule({
@@ -19,9 +20,13 @@ import Speech from 'speak-tts';
   ],
   imports: [
     BrowserModule,
-    // BrowserAnimationsModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatSelectModule,
     HttpClientModule,
     SpeechModule,
     // SpeechService

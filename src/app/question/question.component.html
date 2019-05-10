@@ -6,11 +6,28 @@
 </div>
 <br><br>
 <div>
-  <form>
-    <button mat-raised-button (click)="startButton($event)">Start</button><p>
-    <button mat-raised-button (click)="stop()">Stop</button><p>
-    <textarea [value]="finalTranscript" placeholder="Speech Input Result" rows="15" disabled="true"></textarea>
-  </form>
-  <p *ngIf="notification" class="notification">{{notification}}</p>
+  <div class="center">
+    <mat-form-field>
+      <mat-select placeholder="Select your language"
+                  [(value)]="currentLanguage" [disabled]="recognizing">
+        <mat-option *ngFor="let language of languages" [value]="language" (click)="onSelectLanguage(language)">
+          {{language}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  
+  <div class="center">
+    <button mat-fab (click)="startButton($event)">
+      <mat-icon *ngIf="!recognizing">mic</mat-icon>
+      <mat-icon *ngIf="recognizing">stop</mat-icon>
+    </button>
+  </div>
+  
+  <textarea matInput [value]="finalTranscript" placeholder="Speech Input Result" rows="15" disabled="true"></textarea>
+  
+  <mat-card *ngIf="notification" class="notification">{{notification}}</mat-card>
+  
+  <router-outlet></router-outlet>
 </div>
  
